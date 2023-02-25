@@ -1,0 +1,94 @@
+//Parte de abajo para el tema de la vision movil en la tabla de items
+  Container(
+            height: 60.0,
+            color: Colors.transparent,
+            child: Row(
+              children: [
+                Expanded(
+                  child: Container(
+                      height: 60.0,
+                      margin: const EdgeInsets.all(5),
+                      padding: const EdgeInsets.symmetric(horizontal: 2),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(5),
+                        border: Border.all(
+                          color: Colors.black,
+                        ),
+                      ),
+                      child: Column(
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              const Text('Visor de Imagenes',
+                                  style:
+                                      TextStyle(fontWeight: FontWeight.bold)),
+                              SizedBox(
+                                width: 50,
+                                height: 10,
+                                child: Switch(
+                                    value: productProvider.isLoading,
+                                    onChanged: (bool val) =>
+                                        productProvider.setIsLoanding(val)),
+                              ),
+                            ],
+                          ),
+                          const Spacer(),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              const Text(
+                                'Numero de Items',
+                                style: TextStyle(fontWeight: FontWeight.bold),
+                              ),
+                              Text("${productProvider.carritoProduct.length}"),
+                            ],
+                          ),
+                        ],
+                      )),
+                ),
+                Expanded(
+                  child: Container(
+                      height: 60.0,
+                      margin: const EdgeInsets.all(5),
+                      padding: const EdgeInsets.symmetric(horizontal: 2),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(5),
+                        border: Border.all(
+                          color: Colors.black,
+                        ),
+                      ),
+                      child: Column(
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              const Text('Subtotal',
+                                  style:
+                                      TextStyle(fontWeight: FontWeight.bold)),
+                              Text(f.format(productProvider.subtotal)),
+                            ],
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              const Text("IVA",
+                                  style:
+                                      TextStyle(fontWeight: FontWeight.bold)),
+                              Text(f.format(productProvider.iva)),
+                            ],
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              const Text('Total',
+                                  style:
+                                      TextStyle(fontWeight: FontWeight.bold)),
+                              Text(f.format(productProvider.total)),
+                            ],
+                          )
+                        ],
+                      )),
+                ),
+              ],
+            )), 
